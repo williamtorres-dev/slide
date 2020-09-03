@@ -1,8 +1,12 @@
 export default class Slide {
   constructor(slide, wrapper) {
-    this.slide = document.querySelector(slide)
+    this.slide = document.querySelector(slide);
     this.wrapper = document.querySelector(wrapper);
-    this.dist = { finalPosition: 0, startX: 0, movement: 0 }
+    this.dist = {
+      finalPosition: 0,
+      startX: 0,
+      movement: 0,
+    };
   }
 
   transition(active) {
@@ -80,7 +84,10 @@ export default class Slide {
   slidesConfig() {
     this.slideArray = [...this.slide.children].map((element) => {
       const position = this.slidePosition(element);
-      return { position, element };
+      return {
+        position,
+        element,
+      };
     });
   }
 
@@ -90,7 +97,7 @@ export default class Slide {
       prev: index ? index - 1 : undefined,
       active: index,
       next: index === last ? undefined : index + 1,
-    }
+    };
   }
 
   changeSlide(index) {
